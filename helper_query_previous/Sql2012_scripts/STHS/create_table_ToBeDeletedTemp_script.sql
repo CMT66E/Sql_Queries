@@ -1,0 +1,22 @@
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[ToBeDeletedTemp](
+	[STU_ID] [int] NULL,
+	[GIVEN_NAME] [nvarchar](50) NULL,
+	[FAMILY_NAME] [nvarchar](50) NULL,
+	[SUBURB] [varchar](50) NULL,
+	[POSTCODE] [varchar](10) NULL,
+	[TRAVEL_ROUTES] [nvarchar](50) NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO

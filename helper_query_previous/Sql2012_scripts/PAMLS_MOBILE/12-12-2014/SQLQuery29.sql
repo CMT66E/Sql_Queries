@@ -1,0 +1,53 @@
+ exec [dbo].[uspRiskAssessmentSectionScoreCalculationRESTFul] '
+<DataRiskERAssessment>
+  <RiskAssessmentResultAnswer>
+    <RiskAssessmentResultAnswerID>99</RiskAssessmentResultAnswerID>
+    <RiskAssessmentMediaID>1</RiskAssessmentMediaID>
+    <RiskAssessmentSectionID>1</RiskAssessmentSectionID>
+<RiskAssessmentQuestionID>1</RiskAssessmentQuestionID>
+    <RiskAssessmentAnswerID>2</RiskAssessmentAnswerID>
+  </RiskAssessmentResultAnswer>
+  <RiskAssessmentResultAnswer>
+    <RiskAssessmentResultAnswerID>99</RiskAssessmentResultAnswerID>
+    <RiskAssessmentMediaID>1</RiskAssessmentMediaID>
+    <RiskAssessmentSectionID>1</RiskAssessmentSectionID>
+    <RiskAssessmentQuestionID>3</RiskAssessmentQuestionID>
+    <RiskAssessmentAnswerID>7</RiskAssessmentAnswerID>
+  </RiskAssessmentResultAnswer>
+  <RiskAssessmentResultAnswer>
+    <RiskAssessmentResultAnswerID>99</RiskAssessmentResultAnswerID>
+    <RiskAssessmentMediaID>2</RiskAssessmentMediaID>
+    <RiskAssessmentSectionID>8</RiskAssessmentSectionID>
+    <RiskAssessmentQuestionID>14</RiskAssessmentQuestionID>
+    <RiskAssessmentAnswerID>36</RiskAssessmentAnswerID>
+  </RiskAssessmentResultAnswer>
+  <RiskAssessmentResultAnswer>
+    <RiskAssessmentResultAnswerID>99</RiskAssessmentResultAnswerID>
+    <RiskAssessmentMediaID>4</RiskAssessmentMediaID>
+    <RiskAssessmentSectionID>20</RiskAssessmentSectionID>
+    <RiskAssessmentQuestionID>35</RiskAssessmentQuestionID>
+    <RiskAssessmentAnswerID>85</RiskAssessmentAnswerID>
+  </RiskAssessmentResultAnswer>
+  <RiskAssessmentResultAirPollutant>
+    <RiskAssessmentResultAirPollutantID>0</RiskAssessmentResultAirPollutantID>
+    <RiskAssessmentAirPollutantID>23</RiskAssessmentAirPollutantID>
+    <RiskAssessmentSectionID>2</RiskAssessmentSectionID>
+    <DateCreated>2014-12-11T16:50:45.4018549+11:00</DateCreated>
+    <CreatedBySystemUserID>1378</CreatedBySystemUserID>
+  </RiskAssessmentResultAirPollutant>
+  <RiskAssessmentResultAirPollutant>
+    <RiskAssessmentResultAirPollutantID>0</RiskAssessmentResultAirPollutantID>
+    <RiskAssessmentAirPollutantID>439</RiskAssessmentAirPollutantID>
+    <RiskAssessmentSectionID>2</RiskAssessmentSectionID>
+    <DateCreated>2014-12-11T16:50:45.4018549+11:00</DateCreated>
+    <CreatedBySystemUserID>1378</CreatedBySystemUserID>
+  </RiskAssessmentResultAirPollutant>
+  <RiskAssessmentResultAirPollutant>
+    <RiskAssessmentResultAirPollutantID>0</RiskAssessmentResultAirPollutantID>
+    <RiskAssessmentAirPollutantID>913</RiskAssessmentAirPollutantID>
+    <RiskAssessmentSectionID>2</RiskAssessmentSectionID>
+    <DateCreated>2014-12-11T16:50:45.4028549+11:00</DateCreated>
+    <CreatedBySystemUserID>1378</CreatedBySystemUserID>
+  </RiskAssessmentResultAirPollutant>
+</DataRiskERAssessment>
+', 1, 1378

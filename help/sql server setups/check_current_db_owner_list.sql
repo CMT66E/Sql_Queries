@@ -1,0 +1,7 @@
+EXEC sp_changedbowner 'sa';  
+
+
+SELECT d.name, d.owner_sid, sl.name   
+FROM sys.databases AS d  
+JOIN sys.sql_logins AS sl  
+ON d.owner_sid = sl.sid; 

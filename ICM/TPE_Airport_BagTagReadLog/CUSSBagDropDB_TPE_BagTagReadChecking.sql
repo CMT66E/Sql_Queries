@@ -1,0 +1,32 @@
+USE [CUSSBagDropDB_TPE]
+GO
+
+
+declare @FromDateTime DateTime = '2023-02-01 00:00:00 AM'
+declare @ToDateTime DateTime = '2023-02-07 11:59:59 PM'
+declare @CLVShortName nvarchar(50) = '%'
+declare @Terminal nvarchar(10) = '%'
+declare @Airline nvarchar(25) = '%'
+declare @Area nvarchar(10) = '%'
+declare @SubArea nvarchar(10) = '%'
+declare @ABDStationIDs varchar(400) = '0'
+declare @ABDStationNames varchar(4000) = 'Display All ABDs'
+
+
+SELECT     PaperTagReadLog.PaperTagReadStepID, COUNT(PaperTagReadLog.ID) AS PaperTagReads,
+		AbdStation.Identifier + '-'+ AbdStation.Terminal+ '-'+ AbdStation.Area+ '-'+ AbdStation.SubArea + '-'+ AbdStation.AbdType  AS AbdStationName,
+		PaperTagReadStep.Summary, PaperTagReadStep.Description
+FROM        PaperTagReadLog
+INNER JOIN AbdStation ON PaperTagReadLog.AbdStationID = AbdStation.ID 
+INNER JOIN PaperTagReadStep ON PaperTagReadLog.PaperTagReadStepID = PaperTagReadStep.ID AND PaperTagReadLog.WasReadSuccessful = 1
+LEFT JOIN PaperTagReadScanner ON PaperTagReadScanner.PaperTagReadLogID = PaperTagReadLog.ID
+LEFT JOIN ClvScannerType ON ClvScannerType.ID = PaperTagReadScanner.ClvScannerTypeID
+						  
+WHERE     (PaperTagReadLog.LocalLogTime BETWEEN @FromDateTime AND @ToDateTime)
+	AND (ClvScannerType.ShortName LIKE @CLVShortName)
+	AND (AbdStation.Terminal LIKE @Terminal )
+	 AND (ISNULL(AbdStation.Area,'') LIKE @Area )
+	 AND (ISNULL(AbdStation.SubArea,'') LIKE @SubArea )
+	 AND (@ABDStationIDs = '0' OR CHARINDEX(',' + CAST(ABDStation.ID AS varchar(10)) + ',', @ABDStationIDs) > 0)
+GROUP BY AbdStation.Identifier, AbdStation.Terminal,AbdStation.Area,AbdStation.SubArea,AbdStation.AbdType, PaperTagReadLog.PaperTagReadStepID,  PaperTagReadStep.Summary,PaperTagReadStep.Description
+ORDER BY AbdStation.Identifier + '-'+ AbdStation.Terminal+ '-'+ AbdStation.Area+ '-'+ AbdStation.SubArea + '-'+ AbdStation.AbdType, PaperTagReadStep.Summary

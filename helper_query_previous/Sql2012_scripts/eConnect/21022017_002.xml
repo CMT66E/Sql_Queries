@@ -1,0 +1,182 @@
+﻿<TLLicence>
+  <Id>0</Id>
+  <Title>Capture TL Application Details</Title>
+  <Type>0</Type>
+  <SavedFormList>
+    <int>1</int>
+    <int>2</int>
+    <int>3</int>
+    <int>4</int>
+    <int>5</int>
+    <int>6</int>
+    <int>7</int>
+    <int>8</int>
+    <int>9</int>
+  </SavedFormList>
+  <ModifiedFormList />
+  <ErrorFormList />
+  <Age>0</Age>
+  <Details>
+    <ApplicantTypeId>2</ApplicantTypeId>
+    <TransportGoodTypeId>3</TransportGoodTypeId>
+    <TransportWasteWeightTypeId>2</TransportWasteWeightTypeId>
+  </Details>
+  <PostalContact>
+    <Id>0</Id>
+    <ContactType>0</ContactType>
+    <TitleId>0</TitleId>
+    <CompanyWeb />
+    <IsPostalAddressDifferent>0</IsPostalAddressDifferent>
+    <IsAddressValidationRequred>false</IsAddressValidationRequred>
+    <Prefix>House</Prefix>
+    <Unit>105</Unit>
+    <StreetNo>105</StreetNo>
+    <StreetName>Stapleton St</StreetName>
+    <Suburb>PENDLE HILL</Suburb>
+    <State>NSW</State>
+    <Postcode>2145</Postcode>
+    <Phone />
+    <Email />
+    <Fax />
+    <Signed>false</Signed>
+  </PostalContact>
+  <PrimaryContact>
+    <Id>0</Id>
+    <ContactType>1111</ContactType>
+    <TitleId>548</TitleId>
+    <GivenName>Hari</GivenName>
+    <Surname>Duvuri</Surname>
+    <MiddleName />
+    <OrganizationName />
+    <Position />
+    <IsPostalAddressDifferent>2</IsPostalAddressDifferent>
+    <IsAddressValidationRequred>false</IsAddressValidationRequred>
+    <Prefix />
+    <Unit />
+    <StreetNo />
+    <StreetName />
+    <Suburb />
+    <State />
+    <Postcode>0</Postcode>
+    <Phone>(12) 1234 1234</Phone>
+    <AfterHoursNumber />
+    <Mobile>1234 123456</Mobile>
+    <Email>Hari.Duvuri@environment.nsw.gov.au</Email>
+    <Fax />
+    <Pager />
+    <Signed>false</Signed>
+  </PrimaryContact>
+  <LocationDetails>
+    <TLLocation>
+      <Name>House</Name>
+      <Address>
+        <Id>0</Id>
+        <ContactType>0</ContactType>
+        <TitleId>0</TitleId>
+        <IsPostalAddressDifferent>0</IsPostalAddressDifferent>
+        <IsAddressValidationRequred>false</IsAddressValidationRequred>
+        <Address>Stapleto st</Address>
+        <Suburb>PENDLE HILL</Suburb>
+        <State>NSW</State>
+        <Postcode>2145</Postcode>
+        <AdditionalInfo>ed</AdditionalInfo>
+        <Signed>false</Signed>
+      </Address>
+    </TLLocation>
+  </LocationDetails>
+  <ReportLocationDetails />
+  <FitandProperPerson>
+    <R431>true</R431>
+    <R432>false</R432>
+    <R433>false</R433>
+    <R434>false</R434>
+    <R435>false</R435>
+    <R436>false</R436>
+    <Documents>
+      <DocumentDTO>
+        <Id>0</Id>
+        <CommunicationTypeId>0</CommunicationTypeId>
+        <DocumentName>New Microsoft Word Document.docx|EC359e08c7-9171-431a-985c-ea6b204bfb01.docx</DocumentName>
+        <Comments>test</Comments>
+      </DocumentDTO>
+    </Documents>
+    <Statement>Test</Statement>
+  </FitandProperPerson>
+  <DevConsentDocList />
+  <AccountablePartyList>
+    <POEOAccountableParty>
+      <Id>0</Id>
+      <Type>ABN</Type>
+      <OrganizationName>OFFICE OF ENVIRONMENT AND HERITAGE</OrganizationName>
+      <TradingName>NATIONAL PARKS &amp; WILDLIFE SERVICE</TradingName>
+      <ABN>30 841 387 271</ABN>
+      <ACN />
+    </POEOAccountableParty>
+  </AccountablePartyList>
+  <AccountablePartyIndividualList />
+  <PreviousLicenceSupportDocs />
+  <Vehicles>
+    <Vehicle>
+      <VehicleID>1</VehicleID>
+      <TransportWasteFlag>true</TransportWasteFlag>
+      <TransportDGFlag>true</TransportDGFlag>
+      <TransportTypeId>1406</TransportTypeId>
+      <VehicleTypeID>863</VehicleTypeID>
+      <RegistrationNumber>VH12345</RegistrationNumber>
+      <VinNumber>12345</VinNumber>
+      <RegistrationState>NSW</RegistrationState>
+      <FleetNumber />
+      <CoveredInsuranceFlag>true</CoveredInsuranceFlag>
+      <UploadedDocuments>
+        <DocumentDTO>
+          <Id>0</Id>
+          <CommunicationTypeId>0</CommunicationTypeId>
+          <DocumentName>New Microsoft Word Document.docx|ECe20c7784-cdd9-4b6d-976b-68c90964c9f4.docx</DocumentName>
+          <Comments>Test</Comments>
+        </DocumentDTO>
+      </UploadedDocuments>
+    </Vehicle>
+  </Vehicles>
+  <ReportProposedLicenceHolders />
+  <Signature>
+    <signedByTypeId>7</signedByTypeId>
+    <AttachedFile>
+      <Id>0</Id>
+      <CommunicationTypeId>0</CommunicationTypeId>
+      <DocumentName>New Microsoft Word Document.docx|EC198d1883-ce7b-4283-9e75-972f4907b921.docx</DocumentName>
+    </AttachedFile>
+    <SignatureMethodId>0</SignatureMethodId>
+    <isDeclared>1</isDeclared>
+  </Signature>
+  <SigneeContacts />
+  <LicenceFees>
+    <TLLicenceFee>
+      <LicencePeriod>1 Year</LicencePeriod>
+      <LicencePeriodId>1408</LicencePeriodId>
+      <ApplicationFee>108.0000</ApplicationFee>
+      <VehicleQuantity>1</VehicleQuantity>
+      <AdminFee>125.00</AdminFee>
+      <SumofVehicleFees>90.00</SumofVehicleFees>
+      <TotalFee>324.00</TotalFee>
+    </TLLicenceFee>
+    <TLLicenceFee>
+      <LicencePeriod>3 Years</LicencePeriod>
+      <LicencePeriodId>1409</LicencePeriodId>
+      <ApplicationFee>108.0000</ApplicationFee>
+      <VehicleQuantity>1</VehicleQuantity>
+      <AdminFee>125.00</AdminFee>
+      <SumofVehicleFees>270.00</SumofVehicleFees>
+      <TotalFee>504.00</TotalFee>
+    </TLLicenceFee>
+  </LicenceFees>
+  <LicenceFee>
+    <LicencePeriod>1 Year</LicencePeriod>
+    <LicencePeriodId>1408</LicencePeriodId>
+    <ApplicationFee>108.0</ApplicationFee>
+    <VehicleQuantity>1</VehicleQuantity>
+    <AdminFee>125.0</AdminFee>
+    <SumofVehicleFees>90.0</SumofVehicleFees>
+    <TotalFee>324.0</TotalFee>
+  </LicenceFee>
+  <HasPreviousLicence>0</HasPreviousLicence>
+</TLLicence>
