@@ -13,3 +13,5 @@ SELECT [ID]
   WHERE cast([LocalTime] as date) = '2021-10-03' -- 4835 records it shorts 162 records
   )
 order by ID
+
+--comments added by Eric He 01-10-2026 
