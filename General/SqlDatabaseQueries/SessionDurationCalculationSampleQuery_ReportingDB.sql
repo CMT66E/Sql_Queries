@@ -1,0 +1,53 @@
+
+SELECT 
+       [ID]
+      ,[CustomerID]
+      ,[AbdStationID]
+      ,[CustomerLookupType]
+      ,[PNR]     
+      ,[FlightID]
+      ,[TimeSlot5minID]
+      ,[TimeSlot10minID]
+      ,[TimeSlotHourlyID]
+      ,[DayOfTheWeekID] 
+      ,[SessionEndReasonID]
+      ,[SessionEndPageID]
+      ,[MachineTime]
+      ,[PaxTime]
+      ,[DcsTime]
+      ,[BhsTime]
+      ,[CsaTime]
+      ,[LocalTime]
+	  ,[UtcCreationTime]
+      ,[UtcCompletionTime]  
+	  ,[SessionDuration]
+	  ,isnull(cast(cast(DATEDIFF(MILLISECOND, [UtcCreationTime], [UtcCompletionTime]) as decimal(10, 2))/1000 as decimal(10,2)), 0.00) as SessionDurationCalculation
+  FROM [ReportingDB_NRT].[dbo].[CustomerSession]
+  WHERE  datepart(year, [LocalTime]) = 2024 and datepart(month, [LocalTime]) = 11 and datepart(day, [LocalTime]) = 11
+
+
+SELECT 
+       [ID]
+      ,[CustomerID]
+      ,[AbdStationID]
+      ,[CustomerLookupType]
+      ,[PNR]     
+      ,[FlightID]
+      ,[TimeSlot5minID]
+      ,[TimeSlot10minID]
+      ,[TimeSlotHourlyID]
+      ,[DayOfTheWeekID] 
+      ,[SessionEndReasonID]
+      ,[SessionEndPageID]
+      ,[MachineTime]
+      ,[PaxTime]
+      ,[DcsTime]
+      ,[BhsTime]
+      ,[CsaTime]
+      ,[LocalTime]
+	  ,[UtcCreationTime]
+      ,[UtcCompletionTime]  
+	  ,[SessionDuration]
+	  ,isnull(cast(cast(DATEDIFF(MILLISECOND, [UtcCreationTime], [UtcCompletionTime]) as decimal(10, 2))/1000 as decimal(10,2)), 0.00) as SessionDurationCalculation
+  FROM [ReportingDB_NRT].[dbo].[CustomerSession]
+  WHERE  datepart(year, [LocalTime]) = 2024 and datepart(month, [LocalTime]) = 11 and datepart(day, [LocalTime]) = 12

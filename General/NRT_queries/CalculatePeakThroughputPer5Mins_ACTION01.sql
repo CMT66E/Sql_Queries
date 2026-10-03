@@ -1,0 +1,20 @@
+USE [CUSSReportingDB_NRT]
+GO
+
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[CalculatePeakThroughputPer5Mins]
+		@FromDate = N'2026/06/01 00:00:00',
+		@ToDateTime = N'2026/06/30 23:59:59',
+		@Terminal = N'%',
+		@Area = N'%',
+		@SubArea = N'%',
+		@ABDStationIDs = N',150,158,164,151,159,160,157,161,162,163,167,166,165,153,147,148,149,152,154,155,144,145,156,146,',
+		@ABDStationNames = N'T3_L_S_ABD_001,T3_L_S_ABD_002,T3_L_S_ABD_003,T3_L_S_ABD_004,T3_L_S_ABD_005,T3_L_S_ABD_006,T3_L_S_ABD_007,T3_L_S_ABD_008,T3_L_S_ABD_009,T3_L_S_ABD_010,T3_L_S_ABD_011,T3_L_S_ABD_012,T3_L_S_ABD_013,T3_L_S_ABD_014,T3_L_S_ABD_015,T3_L_S_ABD_016,T3_L_S_ABD_017,T3_L_S_ABD_018,T3_L_S_ABD_019,T3_L_S_ABD_020,T3_L_S_ABD_021,T3_L_S_ABD_022,T3_L_S_ABD_023,T3_L_S_ABD_024'
+
+SELECT	'Return Value' = @return_value
+
+GO
+
+
+ 

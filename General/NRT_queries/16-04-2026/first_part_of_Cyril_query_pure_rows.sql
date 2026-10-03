@@ -1,0 +1,75 @@
+--first part of Cyril's query 
+USE ReportingDB_NRT_FEB2026
+GO 
+INSERT INTO [study].[dbo].BagsCountPerDayPerAirline_NH_FEB2026
+SELECT     
+convert(date,CustomerSession.LocalTime) as Date,
+cast(concat(year(CustomerSession.LocalTime),'-'
+  ,case when month(CustomerSession.LocalTime) < 10 then concat('0',month(CustomerSession.LocalTime))
+  else month(CustomerSession.LocalTime) end
+  ,'-','01') as date) as [monthyear],
+DATEPART(YEAR, CustomerSession.LocalTime) AS Year, 
+DATEPART(MONTH, CustomerSession.LocalTime) AS Month, 
+DATEPART(DAY, CustomerSession.LocalTime) AS Day, 
+CASE WHEN (Flight.MarketingCarrier = 'NH' and (case when AbdStation.Terminal = '2' then concat('T',AbdStation.Terminal,AbdStation.SubArea) else concat('T',AbdStation.Terminal,AbdStation.Area) end) = 'T1S' and AbdStation.SubArea = 'C') then 'NH-C'
+      WHEN (Flight.MarketingCarrier = 'NQ' and (case when AbdStation.Terminal = '2' then concat('T',AbdStation.Terminal,AbdStation.SubArea) else concat('T',AbdStation.Terminal,AbdStation.Area) end) = 'T1S' and AbdStation.SubArea = 'C') then 'NQ-C'
+      WHEN (Flight.MarketingCarrier = 'TG' and (case when AbdStation.Terminal = '2' then concat('T',AbdStation.Terminal,AbdStation.SubArea) else concat('T',AbdStation.Terminal,AbdStation.Area) end) = 'T1S' and AbdStation.SubArea = 'C') then 'TG-C'
+      WHEN (Flight.MarketingCarrier = 'SQ' and (case when AbdStation.Terminal = '2' then concat('T',AbdStation.Terminal,AbdStation.SubArea) else concat('T',AbdStation.Terminal,AbdStation.Area) end) = 'T1S' and AbdStation.SubArea = 'C') then 'SQ-C'
+      WHEN (Flight.MarketingCarrier = 'AC' and (case when AbdStation.Terminal = '2' then concat('T',AbdStation.Terminal,AbdStation.SubArea) else concat('T',AbdStation.Terminal,AbdStation.Area) end) = 'T1S' and AbdStation.SubArea = 'C') then 'AC-C'
+      WHEN (Flight.MarketingCarrier = 'NZ' and (case when AbdStation.Terminal = '2' then concat('T',AbdStation.Terminal,AbdStation.SubArea) else concat('T',AbdStation.Terminal,AbdStation.Area) end) = 'T1S' and AbdStation.SubArea = 'C') then 'NZ-C'
+      WHEN (Flight.MarketingCarrier = 'JL' and ((case when AbdStation.Terminal = '2' then concat('T',AbdStation.Terminal,AbdStation.SubArea) else concat('T',AbdStation.Terminal,AbdStation.Area) end) = 'T2O'
+      or (case when AbdStation.Terminal = '2' then concat('T',AbdStation.Terminal,AbdStation.SubArea) else concat('T',AbdStation.Terminal,AbdStation.Area) end) = 'T2M')) then 'JL-OM'
+      WHEN (Flight.MarketingCarrier = 'JL' and (case when AbdStation.Terminal = '2' then concat('T',AbdStation.Terminal,AbdStation.SubArea) else concat('T',AbdStation.Terminal,AbdStation.Area) end) = 'T2K') then 'JL-K'
+      WHEN (Flight.MarketingCarrier = 'CX' and (case when AbdStation.Terminal = '2' then concat('T',AbdStation.Terminal,AbdStation.SubArea) else concat('T',AbdStation.Terminal,AbdStation.Area) end) = 'T2H') then 'CX-H'
+      WHEN (Flight.MarketingCarrier = 'CX' and (case when AbdStation.Terminal = '2' then concat('T',AbdStation.Terminal,AbdStation.SubArea) else concat('T',AbdStation.Terminal,AbdStation.Area) end) = 'T2E') then 'CX-E'
+      else Flight.MarketingCarrier end as FlightArea,
+Flight.MarketingCarrier,
+CustomerSession.TimeSlot5minID,
+CustomerSession.AbdStationID,
+BagWeightUpdate.Weight AS TotalWeight,
+BagWeightUpdate.ID  AS BagWeightUpdateID, 
+BagWeightUpdate.BagID AS BagCount     
+FROM  dbo.CustomerSession as CustomerSession INNER JOIN 
+  dbo.BagWeightUpdate as BagWeightUpdate on CustomerSession.ID = BagWeightUpdate.CustomerSessionID INNER JOIN
+  dbo.AbdStation as AbdStation ON BagWeightUpdate.AbdStationID = AbdStation.ID INNER JOIN
+  dbo.Flight as Flight ON CustomerSession.FlightID = Flight.ID INNER JOIN 
+  dbo.Bag as Bag ON BagWeightUpdate.BagID = Bag.ID
+WHERE 
+--datepart(year, CustomerSession.LocalTime) = 2026 and datepart(month, CustomerSession.LocalTime) = 2
+cast(concat(year(CustomerSession.LocalTime),'-'
+  ,case when month(CustomerSession.LocalTime) < 10 then concat('0',month(CustomerSession.LocalTime))
+  else month(CustomerSession.LocalTime) end
+  ,'-','01') as date) = '2026-02-01 00:00:00.000'
+
+--CustomerSession.LocalTime >=dateadd(month,datediff(month,0,getdate())-13,0)
+and 
+(
+cast(concat(year(CustomerSession.LocalTime),'-'
+  ,case when month(CustomerSession.LocalTime) < 10 then concat('0',month(CustomerSession.LocalTime))
+  else month(CustomerSession.LocalTime) end
+  ,'-','01') as date) <> 
+cast(concat(year(GetDate()),'-'
+  ,case when month(GetDate()) < 10 then concat('0',month(GetDate()))
+  else month(GetDate()) end
+  ,'-','01') as date)
+)
+and Flight.MarketingCarrier ='NH'
+--GROUP BY 
+--convert(date,CustomerSession.LocalTime) ,
+
+--cast(concat(year(CustomerSession.LocalTime),'-'
+--  ,case when month(CustomerSession.LocalTime) < 10 then concat('0',month(CustomerSession.LocalTime))
+--  else month(CustomerSession.LocalTime) end
+--  ,'-','01') as date),
+
+--DATEPART(YEAR, CustomerSession.LocalTime), 
+--DATEPART(MONTH, CustomerSession.LocalTime), 
+--DATEPART(DAY, CustomerSession.LocalTime), 
+--Flight.MarketingCarrier,
+--CustomerSession.TimeSlot5minID,
+--CustomerSession.AbdStationID,
+--AbdStation.Terminal,
+--AbdStation.Area,
+--AbdStation.SubArea
+
+order by Flight.MarketingCarrier

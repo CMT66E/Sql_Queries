@@ -1,0 +1,1 @@
+EXEC xp_readerrorlog 0, 1;
